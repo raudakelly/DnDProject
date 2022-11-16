@@ -1,0 +1,239 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Silkscreen',sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+@font-face {
+    font-family: 'Silkscreen';
+    src: url('fonts/slkscr-webfont.eot');
+    src: url('fonts/slkscr-webfont.eot?#iefix') format('embedded-opentype'),
+        url('fonts/slkscr-webfont.woff') format('woff'),
+        url('fonts/slkscr-webfont.ttf') format('truetype'),
+        url('fonts/slkscr-webfont.svg#slkscr-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+    Background properties
+*/
+
+body{
+    background-image: url("/media/bg.png");
+    image-rendering: pixelated;
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+    background-position: 200px center;
+}
+
+img{
+    height: 64px;
+    width: 64px;
+}
+
+/*
+    Topbar Properties
+*/
+
+.topbar{
+    height: 80px;
+    width: 100%;
+    background-color: rgb(39, 39, 39);
+    border-bottom: 12px solid rgb(22, 22, 22);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-text{
+    font-size: 40px;
+    color:rgb(172, 128, 8);
+}
+
+.t{
+    margin: 0 15 0 15;
+    color:rgb(172, 128, 8);
+}
+
+/*
+    Sidebar Properties
+*/
+
+.sidebar{
+    top: 0;
+    position: fixed;
+    height: 100vh;
+    background-color: rgb(42, 42, 42);
+    width: 350px;
+    overflow:hidden;
+    overflow-y: scroll;
+    color: rgb(169, 169, 169);
+}
+
+.s-title{
+    display: flex;
+    justify-content: center;
+}
+
+.s-item {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.s-item:hover{
+    cursor: pointer;
+    background-color: rgba(134, 134, 134, 0.127);
+}
+
+.s-item-icon{
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.s-item-text{
+    margin-left: 10px;
+}
+
+/*
+    Content properties
+*/
+
+.content{
+    display: none;
+    text-align: center;
+    margin-left: 450px;
+    margin-top: 100px;
+    margin-right: 100px;
+}
+
+/*
+    Skill properties
+*/
+
+.skill-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    font-size: 30px;
+    border-style: double;
+    border-width: 32px;
+}
+
+.skill-info {
+    text-align: center;
+    margin: 20 80 20 80;
+    box-sizing: border-box;
+    width: 100%;
+    
+}
+
+.skill-selection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.skill-xp-bar{
+    height: 40 px;
+    width: auto;
+    border: 10px solid rgb(105, 48, 9);
+    background-color: rgb(170, 23, 161);
+}
+
+.skill-select{
+    height: 180px;
+    width: 150px;
+    margin: 25 25 25 25;
+    background-color: rgb(128, 63, 20);
+    border-style: solid;
+    border-width: 10px;
+    border-color:rgb(105, 48, 9);
+    transition-duration: 1s;
+}
+
+.skill-select:hover{
+    cursor: pointer;
+    height: 200px;
+    width: 170px;
+    margin: 15 15 15 15;
+    transition-duration: 1s;
+}
+
+/*
+    Individual skill properties
+    Naming convention: sc-<skill-name> (sc = skill container)
+*/
+
+.sc-mining {
+    background-color: rgb(99, 91, 86);
+    border-color:rgb(60, 55, 52);
+}
+
+.sc-woodc {
+    background-color: rgb(128, 63, 20);
+    border-color:rgb(105, 48, 9);
+}
+
+/*
+    Inventory Section
+*/
+
+.inv-container{
+    border-style: solid;
+    border-width: 5px;
+    border-color:rgb(117, 51, 8);
+    background-color: rgb(117, 51, 8);
+    padding: 5 5 5 5;
+}
+
+.inv-tab-selector{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(145, 63, 9);
+}
+
+.inv-tab-text{
+    padding: 15 25 15 25;
+}
+
+.inv-tab-text:hover{
+    cursor: pointer;
+    background-color: rgb(145, 63, 9);;
+}
+
+.inv-tab{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(145, 63, 9);;
+    display: none;
+}
+
+.inv-item{
+    background-color: rgb(145, 63, 9);
+    width: 148px;
+    height: 148px;
+    margin: 10 10 10 10;
+    border-style: solid;
+    border-width: 10px;
+    border-color:rgb(117, 51, 8);
+}
+
+.inv-item:hover{
+    cursor: pointer;
+}
+
+/*
+    Woodcutting Section
+*/
+

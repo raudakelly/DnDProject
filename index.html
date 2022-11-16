@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>DnD</title>
+</head>
+<body>
+    <!-- Sidebar Section -->
+    <div class = "topbar">
+        <div class = "t topbar-dropdown">Drop</div>
+        <div class = "t"></div>
+        <div class = "t title-text">Dungeons & Dragons</div>
+        <div class = "t title-icon">Dragon Image</div>
+        <div class = "t profile-dropdown">Profile</div>
+    </div>
+    <div class = "sidebar">
+        <div class = "s-item map" onclick="sItemClick('map')">
+            <h2 class = "s-item-text">Map</h2>
+            <div class = "s-item-icon map-icon">
+                <img src="/media/sprites/sidebarIcons/map.png" alt="">
+            </div>
+        </div>
+        <div class = "s-item inv" onclick="sItemClick('inv')">
+            <h2 class = "s-item-text">Inventory</h2>
+            <div class = "s-item-icon inv-icon">
+                <img src="/media/sprites/sidebarIcons/chest.png" alt="">
+            </div>
+        </div>
+        <div class = "s-title">
+            <h3>Skills</h3>
+            <div></div>
+        </div>
+        <div class = "s-item inv" onclick="sItemClick('woodc')">
+            <h2 class = "s-item-text">Woodcutting</h2>
+            <div class = "s-item-icon inv-icon">
+                <img src="/media/sprites/sidebarIcons/tree.png" alt="">
+            </div>
+        </div>
+        <div class = "s-item inv" onclick="sItemClick('mining')">
+            <h2 class = "s-item-text">Mining</h2>
+            <div class = "s-item-icon inv-icon">
+                <img src="/media/sprites/sidebarIcons/mining.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- Map Section -->
+    <div id = "map" class = "content">
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+    </div>
+    <!-- Inventory Section -->
+    <div id = "inv" class = "content">
+        <div id = "inv-container" class = "inv-container">
+            <!-- Inventory Tab Selector -->
+            <div class = "inv-tab-selector">
+                <div onclick = "switchTab('tab1')" id = "tab1-text" class = "inv-tab-text">Tab1</div>
+                <div onclick = "switchTab('tab2')" id = "tab2-text" class = "inv-tab-text">Tab2</div>
+                <div onclick = "switchTab('tab3')" id = "tab3-text" class = "inv-tab-text">Tab3</div>
+                <div onclick = "switchTab('tab4')" id = "tab4-text" class = "inv-tab-text">Tab4</div>
+                <div onclick = "switchTab('tab5')" id = "tab5-text" class = "inv-tab-text">Tab5</div>
+            </div>
+            <!-- Inventory Tab Objects; items objects are added inside these divs from JS -->
+            <div id = "tab1" class = "inv-tab"></div>
+            <div id = "tab2" class = "inv-tab"></div>
+            <div id = "tab3" class = "inv-tab"></div>
+            <div id = "tab4" class = "inv-tab"></div>
+            <div id = "tab5" class = "inv-tab"></div>
+        </div>
+    </div>
+    <!-- Woodcutting Section -->
+    <div id = "woodc" class = "content">
+        <div class= "skill-container sc-woodc">
+            <!-- Info Bar at the top of the skill -->
+            <div class = "skill-info">
+                <div class = "skill-title">Woodcutting</div>
+                <div class = "skill-level">Level</div>
+                <div id = "woodc-level">1/99</div>
+                <div class = "skill-xp">Experience</div>
+                <div id = "woodc-xp" class = "skill-xp-bar">1/100</div>
+            </div>
+            <div id = "woodc-selection" class = "skill-selection">
+                
+            </div>
+        </div>
+    </div>
+    <!-- Mining Section -->
+    <div id = "mining" class = "content">
+        <div class= "skill-container sc-mining">
+            <!-- Info Bar at the top of the skill -->
+            <div class = "skill-info">
+                <div class = "skill-title">Mining</div>
+                <div class = "skill-level">Level</div>
+                <div id = "mining-level">1/99</div>
+                <div class = "skill-xp">Experience</div>
+                <div id = "mining-xp" class = "skill-xp-bar">1/100</div>
+            </div>
+            <div id = "mining-selection" class = "skill-selection">
+
+            </div>
+        </div>
+    </div>
+    <script src = "loadPage.js"></script>
+    <script src = "gameManager.js"></script>
+</body>
+</html>
