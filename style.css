@@ -19,11 +19,11 @@
 }
 
 /*
-    Background properties
+    ! Background properties
 */
 
 body{
-    background-image: url("/media/bg.png");
+    background-image: url("./media/bg.png");
     image-rendering: pixelated;
     background-size: cover;
     background-attachment: fixed;
@@ -37,7 +37,7 @@ img{
 }
 
 /*
-    Topbar Properties
+    ! Topbar Properties
 */
 
 .topbar{
@@ -61,7 +61,7 @@ img{
 }
 
 /*
-    Sidebar Properties
+    ! Sidebar Properties
 */
 
 .sidebar{
@@ -102,7 +102,7 @@ img{
 }
 
 /*
-    Content properties
+    ! Content properties
 */
 
 .content{
@@ -114,7 +114,7 @@ img{
 }
 
 /*
-    Skill properties
+    ! Skill properties
 */
 
 .skill-container {
@@ -151,26 +151,45 @@ img{
 }
 
 .skill-select{
-    height: 180px;
-    width: 150px;
+    height: 280px;
+    width: 200px;
     margin: 25 25 25 25;
     background-color: rgb(128, 63, 20);
     border-style: solid;
     border-width: 10px;
     border-color:rgb(105, 48, 9);
     transition-duration: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.skill-select:hover{
+.skill-button{
+    height: 45px;
+    width: 120px;
+    margin: 10 10 10 10;
+    border-style: solid;
+    border-width: 8px;
+    border-color:rgb(105, 48, 9);
+    text-align: center;
+    font-size: 30px;
+}
+
+.skill-button:hover{
+    cursor: pointer;
+}
+
+/*.skill-select:hover{
     cursor: pointer;
     height: 200px;
     width: 170px;
     margin: 15 15 15 15;
     transition-duration: 1s;
-}
+}*/
 
 /*
-    Individual skill properties
+    ! Individual skill properties
     Naming convention: sc-<skill-name> (sc = skill container)
 */
 
@@ -185,7 +204,7 @@ img{
 }
 
 /*
-    Inventory Section
+    ! Inventory Section
 */
 
 .inv-container{

@@ -1,9 +1,9 @@
 /* 
-    Class: Loads all the necessary elements and sets up the app for use
+    $ Class: Loads all the necessary elements and sets up the app for use
 */
 
 /*
-    Loads the side menu
+    ! Loads the side menu
 */
 
 const contentList = ["inv", "map", "woodc","mining"];
@@ -18,34 +18,64 @@ function sItemClick(itemId){
 }
 
 /*
-    Loads each of the options for each skill, builds the necessary HTML elements for each
+    ! Loads each of the options for each skill, builds the necessary HTML elements for each
 
     Notes:
         Structures containing each skill action 
         Each structure is in order by how it is listed in the skills
+
+    TODO:(when adding a skill)
+        add 2 data structures for each skill
+        add *4* items to the skillArrayList
 */
 
-//load woodcutting skill
-let woodcOptions = ["Tree","Oak","Teak","Cherry","Yew","Ice","Magic","Ebony"]
-let parent = document.getElementById("woodc-selection");
-let temp;
+// all of the skills have 2 data structures each, 1 for the name of the action, 1 for the level needed
 
-for(let i = 0;i < woodcOptions.length;i++){
-    temp = document.createElement("div");
+//initialize woodcutting skill
+let woodcOptions = ["Tree","Oak","Teak","Cherry","Yew","Ice","Magic","Ebony"];
+let woodcLevels = ["1","15","30","45","60","75","90","99"];
 
-    temp.setAttribute("class", "skill-select");
-    temp.setAttribute("id", woodcOptions[i]);
-    temp.innerHTML = woodcOptions[i];
-    let img = document.createElement("img");
-    img.setAttribute("src", "/media/sprites/itemIcons/" + (i + 1) + ".png");
-    img.style.height = 128;
-    img.style.width = 128;
-    temp.appendChild(img);
-    parent.appendChild(temp);
+//initialize mining skill
+let miningOptions = ["Iron","Coal","Silver","Orichalcum","Adamantite","Gold","Mithril","Astraulite"];
+let miningLevels = ["1","15","30","45","60","75","90","99"];
+
+/*  List of skills to be initialized, 
+        3rd item is the skills container's parent's classname
+        4th is the name of the action on the button
+*/
+let skillArrayList = [woodcOptions,woodcLevels,"woodc-selection","Chop"];//,"miningOptions","miningLevels","mining-selection","Mine"];
+
+let temp, img, level, button;
+for(let i = 0;i < skillArrayList.length;i+=4){
+    for(let j = 0;j < skillArrayList[i].length;j++){
+        parent = document.getElementById(skillArrayList[i+2]);
+        temp = document.createElement("div");
+        temp.setAttribute("class", "skill-select");
+        temp.setAttribute("id", skillArrayList[i][j]);
+        temp.innerHTML = skillArrayList[i][j];
+        img = document.createElement("img");
+        img.setAttribute("src", "./media/sprites/itemIcons/" + (j+1) + ".png");
+        img.style.height = 128;
+        img.style.width = 128;
+        parent.appendChild(temp);
+        img.style.height = 128;
+        img.style.width = 128;
+        parent.appendChild(temp);
+        //displays level requirement
+        level = document.createElement("div");
+        level.innerHTML = "Level " + skillArrayList[i+1][j];
+        temp.appendChild(level);
+        temp.appendChild(img);
+        //adds button
+        button = document.createElement("div");
+        button.setAttribute("class", "skill-button");
+        button.innerHTML = skillArrayList[i+3];
+        temp.appendChild(button);
+    }
 }
 
 /*  
-    Inventory Handler:  Loads inventory data as an array and populates the inventory container
+    ! Inventory Handler:  Loads inventory data as an array and populates the inventory container
 
     Inventory is organized in array format:
     [Tab ID, Tab Name, Item ID, Number of Items, repeat...]
@@ -81,7 +111,7 @@ for(let i = 0; i < invArray.length; i++){
         //set the ID of the element to the item ID
         newInvItem.setAttribute("id", invArray[i]);
         let img = document.createElement("img");
-        img.setAttribute("src", "/media/sprites/itemIcons/" + invArray[i] + ".png");
+        img.setAttribute("src", "./media/sprites/itemIcons/" + invArray[i] + ".png");
         img.style.height = 128;
         img.style.width = 128;
         newInvItem.appendChild(img);
