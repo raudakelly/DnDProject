@@ -5,8 +5,6 @@ Overview:   Idle D&D simulator
 Author:     Raud Kelly
 
 
-
-
   D&D idle game. Essentially takes as many aspects as possible 
 from D&D and makes it into an afk simulator. The goal of this game 
 is to be able to make a D&D character and be able to progress that 
