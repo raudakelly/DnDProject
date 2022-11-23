@@ -1,8 +1,6 @@
-Title:      DnDProject
-
-Overview:   Idle D&D simulator
-
-Author:     Raud Kelly
+- Title:      DnDProject
+- Overview:   Idle D&D simulator
+- Author:     Raud Kelly
 
 
   D&D idle game. Essentially takes as many aspects as possible 
