@@ -1,5 +1,7 @@
 Title:      DnDProject
+
 Overview:   Idle D&D simulator
+
 Author:     Raud Kelly
 
   D&D afk simulator. Essentially takes as many aspects as possible 
