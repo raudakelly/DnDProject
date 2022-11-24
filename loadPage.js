@@ -39,14 +39,18 @@ let woodcLevels = ["1","15","30","45","60","75","90","99"];
 let miningOptions = ["Iron","Coal","Silver","Orichalcum","Adamantite","Gold","Mithril","Astraulite"];
 let miningLevels = ["1","15","30","45","60","75","90","99"];
 
+//initialize smithing skill
+let smithingOptions = ["Iron Bar","Steel Bar","Silver Bar","Orichalcum Bar","Adamantite Bar","Gold Bar","Mithril Bar","Astraulite Bar"];
+let smithingLevels = ["1","15","30","45","60","75","90","99"];
+
 /*  List of skills to be initialized, 
         3rd item is the skills container's parent's classname
         4th is the name of the action on the button
 */
-let skillArrayList = [woodcOptions,woodcLevels,"woodc-selection","Chop"];//,"miningOptions","miningLevels","mining-selection","Mine"];
+let skillArrayList = [woodcOptions,woodcLevels,"woodc-selection","Chop","./media/sprites/itemIcons/skills/woodcutting"];//,"miningOptions","miningLevels","mining-selection","Mine"];
 
 let temp, img, level, button;
-for(let i = 0;i < skillArrayList.length;i+=4){
+for(let i = 0;i < skillArrayList.length;i+=5){
     for(let j = 0;j < skillArrayList[i].length;j++){
         parent = document.getElementById(skillArrayList[i+2]);
         temp = document.createElement("div");
@@ -54,7 +58,7 @@ for(let i = 0;i < skillArrayList.length;i+=4){
         temp.setAttribute("id", skillArrayList[i][j]);
         temp.innerHTML = skillArrayList[i][j];
         img = document.createElement("img");
-        img.setAttribute("src", "./media/sprites/itemIcons/" + (j+1) + ".png");
+        img.setAttribute("src", skillArrayList[i+4] + (j+1) + ".png");
         img.style.height = 128;
         img.style.width = 128;
         parent.appendChild(temp);
