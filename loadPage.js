@@ -6,7 +6,7 @@
     ! Loads the side menu
 */
 
-const contentList = ["inv", "map", "woodc","mining"];
+const contentList = ["inv", "map", "woodc","mining","smithing"];
 
 function sItemClick(itemId){
     for(let i = 0; i < contentList.length; i++){
@@ -26,7 +26,7 @@ function sItemClick(itemId){
 
     TODO:(when adding a skill)
         add 2 data structures for each skill
-        add *4* items to the skillArrayList
+        add *5* items to the skillArrayList
 */
 
 // all of the skills have 2 data structures each, 1 for the name of the action, 1 for the level needed
@@ -46,9 +46,12 @@ let smithingLevels = ["1","15","30","45","60","75","90","99"];
 /*  List of skills to be initialized, 
         3rd item is the skills container's parent's classname
         4th is the name of the action on the button
+        5th item is the folder of sprites for the skill
 */
 
-let skillArrayList = [woodcOptions,woodcLevels,"woodc-selection","Chop","./media/sprites/itemIcons/skills/woodcutting"];//,"miningOptions","miningLevels","mining-selection","Mine"];
+let skillArrayList = [woodcOptions,woodcLevels,"woodc-selection","Chop","./media/sprites/skills/woodcutting/",
+                        miningOptions,miningLevels,"mining-selection","Mine","./media/sprites/skills/mining/",
+                        smithingOptions,smithingLevels,"smithing-selection","Smith","./media/sprites/skills/smithing/"];
 
 let temp, img, level, button;
 for(let i = 0;i < skillArrayList.length;i+=5){
