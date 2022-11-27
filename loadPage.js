@@ -47,6 +47,7 @@ let smithingLevels = ["1","15","30","45","60","75","90","99"];
         3rd item is the skills container's parent's classname
         4th is the name of the action on the button
 */
+
 let skillArrayList = [woodcOptions,woodcLevels,"woodc-selection","Chop","./media/sprites/itemIcons/skills/woodcutting"];//,"miningOptions","miningLevels","mining-selection","Mine"];
 
 let temp, img, level, button;
