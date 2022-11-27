@@ -203,6 +203,11 @@ img{
     border-color:rgb(105, 48, 9);
 }
 
+.sc-woodc {
+    background-color: rgb(115, 115, 115);
+    border-color:rgb(61, 61, 61);
+}
+
 /*
     ! Inventory Section
 */
