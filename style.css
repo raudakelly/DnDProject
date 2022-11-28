@@ -212,6 +212,11 @@ img{
     border-color:rgb(30, 30, 30);
 }
 
+.style-fishing {
+    background-color: rgb(3, 101, 139);
+    border-color:rgb(0, 62, 87);
+}
+
 /*
     ! Inventory Section
 */

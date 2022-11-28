@@ -8,7 +8,7 @@
     ! Loads the side menu
 */
 
-const contentList = ["inv", "map", "woodc","mining","smithing"];
+const contentList = ["inv", "map", "woodc","mining","smithing","fishing"];
 
 function sItemClick(itemId){
     for(let i = 0; i < contentList.length; i++){

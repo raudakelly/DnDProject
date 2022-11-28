@@ -28,6 +28,10 @@ let miningLevels = ["1","15","30","45","60","75","90","99"];
 let smithingOptions = ["Iron Bar","Steel Bar","Silver Bar","Orichalcum Bar","Adamantite Bar","Gold Bar","Mithril Bar","Astraulite Bar"];
 let smithingLevels = ["1","15","30","45","60","75","90","99"];
 
+//initialize smithing skill
+let fishingOptions = ["Blue Gill","Bass","Duckfish","Salmon","Silverfish","Landshark","Diamondfish","Sunfish"];
+let fishingLevels = ["1","15","30","45","60","75","90","99"];
+
 /*  List of skills to be initialized, 
         3rd item is the skills container's parent's classname
         4th is the name of the action on the button
@@ -36,7 +40,8 @@ let smithingLevels = ["1","15","30","45","60","75","90","99"];
 
 let skillArrayList = [woodcOptions,woodcLevels,"woodc-selection","Chop","./media/sprites/skills/woodcutting/",
                         miningOptions,miningLevels,"mining-selection","Mine","./media/sprites/skills/mining/",
-                        smithingOptions,smithingLevels,"smithing-selection","Smith","./media/sprites/skills/smithing/"];
+                        smithingOptions,smithingLevels,"smithing-selection","Smith","./media/sprites/skills/smithing/",
+                        fishingOptions,fishingLevels,"fishing-selection","Fish","./media/sprites/skills/fishing/"];
 
 let temp, img, level, button;
 for(let i = 0;i < skillArrayList.length;i+=5){
