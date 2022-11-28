@@ -1,5 +1,7 @@
 /* 
     $ Class: Loads all the necessary elements and sets up the app for use
+
+    TODO: load character from file
 */
 
 /*
