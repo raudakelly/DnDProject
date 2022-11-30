@@ -5,6 +5,12 @@
 */
 
 /*
+    TODO: add a way of saving the character's progress while they are playing
+    TODO: this prevents loss of progress (WARN PLAYERS ABOUT NOT CLEARING CACHE BEFORE SAVING TO SERVER)
+
+*/
+
+/*
     ! Loads each of the options for each skill, builds the necessary HTML elements for each
 
     Notes:
@@ -48,6 +54,7 @@ let skillArrayList = [woodcOptions,woodcLevels,"woodc-selection","Chop","./media
 let temp, img, level, button;
 for(let i = 0;i < skillArrayList.length;i+=5){
     for(let j = 0;j < skillArrayList[i].length;j++){
+        //create the element for each skill action
         parent = document.getElementById(skillArrayList[i+2]);
         temp = document.createElement("div");
         temp.setAttribute("class", "skill-select");

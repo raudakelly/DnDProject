@@ -1,3 +1,7 @@
+/*
+    ! Setup default properties for all elements and pixel font
+*/
+
 *{
     box-sizing: border-box;
     margin: 0;
