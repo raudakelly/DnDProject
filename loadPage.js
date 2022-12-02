@@ -7,7 +7,6 @@
 /*
     TODO: add a way of saving the character's progress while they are playing
     TODO: this prevents loss of progress (WARN PLAYERS ABOUT NOT CLEARING CACHE BEFORE SAVING TO SERVER)
-
 */
 
 /*
