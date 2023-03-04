@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>DnD</title>
+    <link rel="shortcut icon" href="./favicon.png">
 </head>
 <body>
-    <!-- Sidebar Section -->
+    <div id = "blurr"></div>
+    <!-- ! Sidebar Section -->
     <div class = "topbar">
         <div class = "t topbar-dropdown">Drop</div>
         <div class = "t"></div>
@@ -57,14 +59,74 @@
             </div>
         </div>
     </div>
-    <!-- Map Section -->
+    <!-- ! Map Section -->
     <div id = "map" class = "content">
         <img src="./media/sprites/map.png" alt="" class="map-image">
     </div>
-    <!-- Inventory Section -->
+    <!-- ! Inventory Section -->
     <div id = "inv" class = "content">
+        <!-- $ Focus Item Section -->
+        <div id="inv-focus">
+            <div id="inv-focus-name" class = "inv-focus-element"></div>
+            <img id = "inv-focus-img" src="./media/sprites/items/fishing/1.png" alt="1001" class = "inv-focus-element">
+            <div class = "inv-focus-container">
+                <div class = "inv-focus-element">QUANTITY</div>
+                <div id="inv-focus-quantity" class = "inv-focus-element"></div>
+            </div>
+            <div class = "inv-focus-container" class = "inv-focus-element">
+                <div id="inv-focus-gold-value">VALUE</div>
+                <div class = "inv-focus-container2">
+                    <img class = "inv-focus-gold-img" src="./media/sprites/extra/gold.png" alt="gold">
+                    <div id="inv-focus-gold-amount"></div>
+                </div>
+            </div>
+            <div class="inv-focus-container">
+                <div id="inv-focus-sell" class = "inv-focus-element" onclick = "confirmSellX(1)">SELL 1</div>
+                <div id="inv-focus-sellx" class = "inv-focus-element" onclick = "sellX()">SELL X</div>
+            </div>
+            <div id="close-inv-focus" class = "inv-focus-element" onclick = "closeInvItem()">CLOSE</div>
+        </div>
+        <!-- $ Sell Amount Section -->
+        <div id = "sell-x">
+            <div class = "sell-x-text">Enter how many you want to sell</div>
+            <div class = "sell-x-container">
+                <div class = "sell-x-text">MAX : </div>
+                <div id = "sell-x-max"></div>
+            </div>
+            <div class = "sell-x-container">
+                <input type="number" id="sell-x-userinput" onkeyup="sellxUpdateGoldValue()">
+                <div id = "sell-x-maxbtn" onclick = "sellxSetMax()">MAX</div>
+            </div>
+            <div class = "sell-x-container">
+                <div class = "sell-x-text">VALUE: </div>
+                <img class = "inv-focus-gold-img" src="./media/sprites/extra/gold.png" alt="gold">
+                <div id = "sell-x-value"></div>
+            </div>
+            <div class = "sell-x-container">
+                <div id = "sell-x-sellbtn" onclick = "confirmSellQuantity()">SELL</div>
+                <div id = "sell-x-cancelbtn" onclick = "closeSellX()">CANCEL</div>
+            </div>
+        </div>
+        <!-- $ Confirm Sale Section -->
+        <div id = "confirm-sell">
+            <div id = "confirm-sell-text1">Are you sure you want to sell</div>
+            <div class="confirm-sell-container">
+                <img id = "confirm-sell-item-img"src="" alt="">
+                <div id="confirm-sell-item-name"></div>
+                <div> X </div>
+                <div id = "confirm-sell-quantity"></div>
+            </div>
+            <div class = "confirm-sell-container">
+                <img class = "inv-focus-gold-img" src="./media/sprites/extra/gold.png" alt="gold">
+                <div id = "confirm-sell-value"></div>
+            </div>
+            <div class = "confirm-sell-container">
+                <div id="confirm-sell-confirm-btn" onclick = "sellItem()">CONFIRM</div>
+                <div id = "confirm-sell-cancel-btn" onclick = "closeConfirmSell()">CANCEL</div>
+            </div>
+        </div>
         <div id = "inv-container" class = "inv-container">
-            <!-- Inventory Tab Selector -->
+            <!-- $ Inventory Tab Selector -->
             <div class = "inv-tab-selector">
                 <div onclick = "switchTab('tab1')" id = "tab1-text" class = "inv-tab-text">Tab1</div>
                 <div onclick = "switchTab('tab2')" id = "tab2-text" class = "inv-tab-text">Tab2</div>
@@ -72,7 +134,7 @@
                 <div onclick = "switchTab('tab4')" id = "tab4-text" class = "inv-tab-text">Tab4</div>
                 <div onclick = "switchTab('tab5')" id = "tab5-text" class = "inv-tab-text">Tab5</div>
             </div>
-            <!-- Inventory Tab Objects; items objects are added inside these divs from JS -->
+            <!-- $ Inventory Tab Objects; items objects are added inside these divs from JS -->
             <div id = "tab1" class = "inv-tab"></div>
             <div id = "tab2" class = "inv-tab"></div>
             <div id = "tab3" class = "inv-tab"></div>
@@ -80,10 +142,10 @@
             <div id = "tab5" class = "inv-tab"></div>
         </div>
     </div>
-    <!-- Woodcutting Section -->
+    <!-- ! Woodcutting Section -->
     <div id = "woodc" class = "content">
         <div class= "skill-container style-woodc">
-            <!-- Info Bar at the top of the skill -->
+            <!-- $ Info Bar at the top of the skill -->
             <div class = "skill-info">
                 <div class = "skill-title">Woodcutting</div>
                 <div class = "skill-level">Level</div>
@@ -96,10 +158,10 @@
             </div>
         </div>
     </div>
-    <!-- Mining Section -->
+    <!-- ! Mining Section -->
     <div id = "mining" class = "content">
         <div class= "skill-container style-mining">
-            <!-- Info Bar at the top of the skill -->
+            <!-- $ Info Bar at the top of the skill -->
             <div class = "skill-info">
                 <div class = "skill-title">Mining</div>
                 <div class = "skill-level">Level</div>
@@ -112,10 +174,10 @@
             </div>
         </div>
     </div>
-    <!-- Smithing Section -->
+    <!-- ! Smithing Section -->
     <div id = "smithing" class = "content">
         <div class= "skill-container style-smithing">
-            <!-- Info Bar at the top of the skill -->
+            <!-- $ Info Bar at the top of the skill -->
             <div class = "skill-info">
                 <div class = "skill-title">Smithing</div>
                 <div class = "skill-level">Level</div>
@@ -128,10 +190,10 @@
             </div>
         </div>
     </div>
-    <!-- Fishing Section -->
+    <!-- ! Fishing Section -->
     <div id = "fishing" class = "content">
         <div class= "skill-container style-fishing">
-            <!-- Info Bar at the top of the skill -->
+            <!-- $ Info Bar at the top of the skill -->
             <div class = "skill-info">
                 <div class = "skill-title">Fishing</div>
                 <div class = "skill-level">Level</div>

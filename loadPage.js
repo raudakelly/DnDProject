@@ -1,6 +1,8 @@
 /* 
     $ Class: Loads all the necessary elements and sets up the app for use
 
+    Note: Runs on startup and does not run again
+
     TODO: load character from file
 */
 
@@ -24,20 +26,24 @@
 // all of the skills have 2 data structures each, 1 for the name of the action, 1 for the level needed
 
 //initialize woodcutting skill
-let woodcOptions = ["Tree","Oak","Teak","Cherry","Yew","Ice","Magic","Ebony"];
+let woodcutting = ["Logs","Oak Logs","Teak Logs","Cherry Logs","Yew Logs","Ice Logs","Magic Logs","Ebony Logs"];
 let woodcLevels = ["1","15","30","45","60","75","90","99"];
+let woodcPrices = [1,5,20,45,80,150,250,500];
 
 //initialize mining skill
-let miningOptions = ["Iron","Coal","Silver","Orichalcum","Adamantite","Gold","Mithril","Astraulite"];
+let mining = ["Iron Ore","Coal Ore","Silver Ore","Orichalcum Ore","Adamantite Ore","Gold Ore","Mithril Ore","Astraulite Ore"];
 let miningLevels = ["1","15","30","45","60","75","90","99"];
+let miningPrices = [1,5,20,45,80,150,250,500];
 
 //initialize smithing skill
-let smithingOptions = ["Iron Bar","Steel Bar","Silver Bar","Orichalcum Bar","Adamantite Bar","Gold Bar","Mithril Bar","Astraulite Bar"];
+let smithing = ["Iron Bar","Steel Bar","Silver Bar","Orichalcum Bar","Adamantite Bar","Gold Bar","Mithril Bar","Astraulite Bar"];
 let smithingLevels = ["1","15","30","45","60","75","90","99"];
+let smithingPrices = [5,20,50,100,200,500,1000,2500];
 
 //initialize smithing skill
-let fishingOptions = ["Blue Gill","Bass","Duckfish","Salmon","Silverfish","Landshark","Diamondfish","Sunfish"];
+let fishing = ["Raw Blue Gill","Raw Bass","Raw Duckfish","Raw Salmon","Raw Silverfish","Raw Landshark","Raw Diamondfish","Raw Sunfish"];
 let fishingLevels = ["1","15","30","45","60","75","90","99"];
+let fishingPrices = [1,5,20,45,80,150,250,500];
 
 /*  List of skills to be initialized, 
         3rd item is the skills container's parent's classname
@@ -45,10 +51,10 @@ let fishingLevels = ["1","15","30","45","60","75","90","99"];
         5th item is the folder of sprites for the skill
 */
 
-let skillArrayList = [woodcOptions,woodcLevels,"woodc-selection","Chop","./media/sprites/skills/woodcutting/",
-                        miningOptions,miningLevels,"mining-selection","Mine","./media/sprites/skills/mining/",
-                        smithingOptions,smithingLevels,"smithing-selection","Smith","./media/sprites/skills/smithing/",
-                        fishingOptions,fishingLevels,"fishing-selection","Fish","./media/sprites/skills/fishing/"];
+let skillArrayList = [woodcutting,woodcLevels,"woodc-selection","Chop","./media/sprites/items/woodcutting/",
+                        mining,miningLevels,"mining-selection","Mine","./media/sprites/items/mining/",
+                        smithing,smithingLevels,"smithing-selection","Smith","./media/sprites/items/smithing/",
+                        fishing,fishingLevels,"fishing-selection","Fish","./media/sprites/items/fishing/"];
 
 let temp, img, level, button;
 for(let i = 0;i < skillArrayList.length;i+=5){
@@ -85,10 +91,16 @@ for(let i = 0;i < skillArrayList.length;i+=5){
     ! Inventory Handler:  Loads inventory data as an array and populates the inventory container
 
     Inventory is organized in array format:
-    [Tab ID, Tab Name, Item ID, Number of Items, repeat...]
+    [Tab ID, Tab Name, Item ID + 1000*foldertype, Number of Items, repeat...]
+
+    Folders:
+    1: fishing
+    2: mining
+    3: smithing
+    4: woodcutting
 
     For example:
-    invArray = ['tab1', 'Equipement', 3, 4, 'tab2', 'resources', 5, 29...]
+    invArray = ['tab1', 'Equipement', 3001, 4, 'tab2', 'resources', 1005, 29...]
 
 */
 
@@ -96,15 +108,19 @@ for(let i = 0;i < skillArrayList.length;i+=5){
 let invString;
 let invArray;
 if(!(invString = localStorage.getItem("inventory"))){
-    invArray = ['tab1','General',1,2,3,4,6,1,7,1,8,1,'tab2','Resources',2,2,'tab3','Armor','tab4','Weapons','tab5','Misc'];
+    invArray = [0,'tab1','General',1001,1762,1006,69,2006,41,2007,1,3008,27,'tab2','Resources',3002,2,'tab3','Armor','tab4','Weapons','tab5','Misc', 4005, 27];
 } else {
     invArray = invString.split(',');
 }
 
 //current inventory tab element
 let tabElement;
+//temp element for the number of items
+let numItems;
+//name of the sprite folder
+let fName = 'error';
 //create inventory element and add necessary properties
-for(let i = 0; i < invArray.length; i++){
+for(let i = 1; i < invArray.length; i++){
     if(typeof invArray[i] == 'string'){
         //set the tab name
         tabElement = document.getElementById(invArray[i] + '-text');
@@ -117,13 +133,30 @@ for(let i = 0; i < invArray.length; i++){
         newInvItem.setAttribute("class", "inv-item");
         //set the ID of the element to the item ID
         newInvItem.setAttribute("id", invArray[i]);
+        newInvItem.setAttribute("onclick", "openInvItem(" + invArray[i] + ")");
         let img = document.createElement("img");
-        img.setAttribute("src", "./media/sprites/itemIcons/" + invArray[i] + ".png");
+
+        //get the folder name
+        if(invArray[i]/1000 < 2){
+            fName = 'fishing'
+        } else if(invArray[i]/1000 < 3){
+            fName = 'mining'
+        } else if(invArray[i]/1000 < 4){
+            fName = 'smithing'
+        } else if(invArray[i]/1000 < 5){
+            fName = 'woodcutting'
+        }
+
+        img.setAttribute("src", "./media/sprites/items/" + fName + '/' + (invArray[i] % 1000) + ".png");
         img.style.height = 128;
         img.style.width = 128;
         newInvItem.appendChild(img);
-        //TODO: Use the number of items to show useful info
         i++;
+        //display number of items
+        numItems = document.createElement("div")
+        numItems.innerHTML = invArray[i];
+        newInvItem.appendChild(numItems);
+        
         //add new element to the inventory container div
         tabElement.appendChild(newInvItem);
     }
