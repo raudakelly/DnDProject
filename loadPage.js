@@ -162,3 +162,15 @@ for(let i = 1; i < invArray.length; i++){
     }
     
 }
+
+/*
+    $ Load the areas-menus
+*/
+
+//names of the areas
+let areas = ["Agora","Khazar-kil","Elthoras","Northlands","Sands of Jashir","Deep Dark"];
+
+for(let i  = 0; i < areas.length; i++){
+    let area = document.getElementById(areas[i] + "-menu");
+    let newInvItem = document.createElement("div");
+}

@@ -18,7 +18,7 @@
         <div class = "t profile-dropdown">Profile</div>
     </div>
     <div class = "sidebar">
-        <div class = "s-item map" onclick="sItemClick('map')">
+        <div class = "s-item map" onclick="sItemClick('areas')">
             <h2 class = "s-item-text">Map</h2>
             <div class = "s-item-icon map-icon">
                 <img src="./media/sprites/sidebarIcons/map.png" alt="">
@@ -59,10 +59,51 @@
             </div>
         </div>
     </div>
-    <!-- ! Map Section -->
-    <div id = "map" class = "content">
-        <img src="./media/sprites/map.png" alt="" class="map-image">
+    <!-- ! Areas Section -->
+    <div id = "areas" class = "content">
+        <!-- $ Area Selection -->
+        <div id = "areas-content">
+            <div class = "areas-title">Areas</div>
+            <div id = "areas-container">
+                <div class = "area" id = "Agora" onclick = "openArea('Agora')">Agora</div>
+                <div class = "area" id = "Khazar-kil" onclick = "openArea('Khazar-kil')">Khazar-kil</div>
+                <div class = "area" id = "Elthoras" onclick = "openArea('Elthoras')">Elthoras</div>
+                <div class = "area" id = "Northlands" onclick = "openArea('Northlands')">Northlands</div>
+                <div class = "area" id = "Sands of Jashir" onclick = "openArea('Sands of Jashir')">Sands of Jashir</div>
+                <div class = "area" id = "Deep Dark" onclick = "openArea('Deep Dark')">Deep Dark</div>
+            </div>
+        </div>
+        <!-- $ Area menu -->
+        <div id = "area-menu">
+            <div id = "area-menu-backbtn" onclick = "areaMenuBack()">Back</div>
+            <div class = "areas-title" id = "area-menu-title"></div>
+            <div class = "area-menu-item" id = "area-menu-combat">
+                <img class = "area-menu-img" src="" alt="combat-icon">
+                <div class = "areas-menu-title">Combat</div>
+                <img class = "area-menu-img" src="./media/sprites/enemies/goblin.gif" alt="combat-img">
+            </div>
+            <div class = "area-menu-item" id = "area-menu-gathering">
+                <img class = "area-menu-img" src="" alt="gathering-icon">
+                <div class = "areas-menu-title">Gathering</div>
+                <img class = "area-menu-img" src="" alt="gathering-img">
+            </div>
+            <div class = "area-menu-item" id = "area-menu-hunting">
+                <img class = "area-menu-img" src="" alt="hunting-icon">
+                <div class = "areas-menu-title">Hunting</div>
+                <img class = "area-menu-img" src="" alt="hunting-img">
+            </div>
+            <div class = "area-menu-item" id = "area-menu-trapping">
+                <img class = "area-menu-img" src="" alt="hunting-icon">
+                <div class = "areas-menu-title">Trapping</div>
+                <img class = "area-menu-img" src="" alt="hunting-img">
+            </div>
+        </div>
+        <!-- $ Combat menu -->
+        <div id = "combat-menu">
+            
+        </div>
     </div>
+    
     <!-- ! Inventory Section -->
     <div id = "inv" class = "content">
         <!-- $ Focus Item Section -->
@@ -209,5 +250,6 @@
     <script src = "loadPage.js"></script>
     <script src = "functions.js"></script>
     <script src = "gameManager.js"></script>
+    <script type="module" src = "firebase.js"></script>
 </body>
 </html>

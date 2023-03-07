@@ -7,7 +7,7 @@
 */
 
 //names of the side tabs
-const contentList = ["inv", "map", "woodc","mining","smithing","fishing"];
+const contentList = ["inv", "areas", "woodc","mining","smithing","fishing"];
 
 //set the first tab to visible by default
 tab = document.getElementById(invArray[1]);
@@ -17,6 +17,10 @@ document.getElementById("tab1-text").style.backgroundColor = "rgb(117, 51, 8)";
 
 /*
     $ Functions
+*/
+
+/*
+    $ Inventory  Functions
 */
 
 /*
@@ -272,6 +276,27 @@ function sellItem(){
     //after selling the item close the confirmation menu
     closeConfirmSell();
     closeInvItem();
+}
+
+/*
+    $Areas Functions
+*/
+
+function openArea(name){
+    let content = document.getElementById("areas-content");
+    content.style.display = "none";
+    content = document.getElementById("area-menu");
+    content.style.display = "block";
+
+    let title = document.getElementById("area-menu-title");
+    title.innerHTML = name;
+}
+
+function areaMenuBack(){
+    let content = document.getElementById("area-menu");
+    content.style.display = "none";
+    content = document.getElementById("areas-content");
+    content.style.display = "block";
 }
 
 /*
