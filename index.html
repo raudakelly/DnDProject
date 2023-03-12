@@ -18,43 +18,40 @@
         <div class = "t profile-dropdown">Profile</div>
     </div>
     <div class = "sidebar">
-        <div class = "s-item map" onclick="sItemClick('areas')">
-            <h2 class = "s-item-text">Map</h2>
-            <div class = "s-item-icon map-icon">
+        <div class = "s-item" onclick="sItemClick('areas')">
+            <h2 class = "s-item-text">Areas</h2>
+            <div class = "s-item-icon">
                 <img src="./media/sprites/sidebarIcons/map.png" alt="">
             </div>
         </div>
-        <div class = "s-item inv" onclick="sItemClick('inv')">
+        <div class = "s-item" onclick="sItemClick('inv')">
             <h2 class = "s-item-text">Inventory</h2>
-            <div class = "s-item-icon inv-icon">
+            <div class = "s-item-icon">
                 <img src="./media/sprites/sidebarIcons/chest.png" alt="">
             </div>
         </div>
-        <div class = "s-title">
-            <h3>Skills</h3>
-            <div></div>
-        </div>
-        <div class = "s-item inv" onclick="sItemClick('woodc')">
+        <div class = "s-title">Skills</div>
+        <div class = "s-item" onclick="sItemClick('woodc')">
             <h2 class = "s-item-text">Woodcutting</h2>
-            <div class = "s-item-icon inv-icon">
+            <div class = "s-item-icon">
                 <img src="./media/sprites/sidebarIcons/tree.png" alt="">
             </div>
         </div>
-        <div class = "s-item inv" onclick="sItemClick('mining')">
+        <div class = "s-item" onclick="sItemClick('mining')">
             <h2 class = "s-item-text">Mining</h2>
-            <div class = "s-item-icon inv-icon">
+            <div class = "s-item-icon">
                 <img src="./media/sprites/sidebarIcons/mining.png" alt="">
             </div>
         </div>
-        <div class = "s-item inv" onclick="sItemClick('smithing')">
+        <div class = "s-item" onclick="sItemClick('smithing')">
             <h2 class = "s-item-text">Smithing</h2>
-            <div class = "s-item-icon inv-icon">
+            <div class = "s-item-icon">
                 <img src="./media/sprites/sidebarIcons/smithing.png" alt="">
             </div>
         </div>
-        <div class = "s-item inv" onclick="sItemClick('fishing')">
+        <div class = "s-item" onclick="sItemClick('fishing')">
             <h2 class = "s-item-text">Fishing</h2>
-            <div class = "s-item-icon inv-icon">
+            <div class = "s-item-icon">
                 <img src="./media/sprites/sidebarIcons/fishing.png" alt="">
             </div>
         </div>
@@ -66,41 +63,73 @@
             <div class = "areas-title">Areas</div>
             <div id = "areas-container">
                 <div class = "area" id = "Agora" onclick = "openArea('Agora')">Agora</div>
-                <div class = "area" id = "Khazar-kil" onclick = "openArea('Khazar-kil')">Khazar-kil</div>
+                <div class = "area" id = "Khazar-xul" onclick = "openArea('Khazar-kil')">Khazar-kil</div>
                 <div class = "area" id = "Elthoras" onclick = "openArea('Elthoras')">Elthoras</div>
                 <div class = "area" id = "Northlands" onclick = "openArea('Northlands')">Northlands</div>
-                <div class = "area" id = "Sands of Jashir" onclick = "openArea('Sands of Jashir')">Sands of Jashir</div>
-                <div class = "area" id = "Deep Dark" onclick = "openArea('Deep Dark')">Deep Dark</div>
+                <div class = "area" id = "Sands-of-Jashir" onclick = "openArea('Sands_of_Jashir')">Sands of Jashir</div>
+                <div class = "area" id = "Deep-Dark" onclick = "openArea('Deep_Dark')">Deep Dark</div>
             </div>
         </div>
         <!-- $ Area menu -->
         <div id = "area-menu">
             <div id = "area-menu-backbtn" onclick = "areaMenuBack()">Back</div>
             <div class = "areas-title" id = "area-menu-title"></div>
-            <div class = "area-menu-item" id = "area-menu-combat">
-                <img class = "area-menu-img" src="" alt="combat-icon">
+            <div class = "area-menu-item" id = "area-menu-combat" onclick = "openAreaMenu('combat')">
+                <img class = "area-menu-img" src="./media/sprites/icons/crossed-swords.png" alt="combat-icon">
                 <div class = "areas-menu-title">Combat</div>
                 <img class = "area-menu-img" src="./media/sprites/enemies/goblin.gif" alt="combat-img">
             </div>
-            <div class = "area-menu-item" id = "area-menu-gathering">
-                <img class = "area-menu-img" src="" alt="gathering-icon">
+            <div class = "area-menu-item" id = "area-menu-gathering" onclick = "openAreaMenu('gathering')">
+                <img class = "area-menu-img" src="./media/sprites/icons/herb.png" alt="gathering-icon">
                 <div class = "areas-menu-title">Gathering</div>
-                <img class = "area-menu-img" src="" alt="gathering-img">
+                <img class = "area-menu-img" src="./media/sprites/icons/mushroom.png" alt="gathering-img">
             </div>
-            <div class = "area-menu-item" id = "area-menu-hunting">
-                <img class = "area-menu-img" src="" alt="hunting-icon">
+            <div class = "area-menu-item" id = "area-menu-hunting" onclick = "openAreaMenu('hunting')">
+                <img class = "area-menu-img" src="./media/sprites/icons/bow.png" alt="hunting-icon">
                 <div class = "areas-menu-title">Hunting</div>
-                <img class = "area-menu-img" src="" alt="hunting-img">
+                <img class = "area-menu-img" src="./media/sprites/icons/deer.gif" alt="hunting-img">
             </div>
-            <div class = "area-menu-item" id = "area-menu-trapping">
-                <img class = "area-menu-img" src="" alt="hunting-icon">
+            <div class = "area-menu-item" id = "area-menu-trapping" onclick = "openAreaMenu('trapping')">
+                <img class = "area-menu-img" src="./media/sprites/icons/trap.png" alt="trapping-icon">
                 <div class = "areas-menu-title">Trapping</div>
-                <img class = "area-menu-img" src="" alt="hunting-img">
+                <img class = "area-menu-img" src="./media/sprites/icons/rabbit.gif" alt="trapping-img">
             </div>
         </div>
         <!-- $ Combat menu -->
         <div id = "combat-menu">
-            
+            <div id = "Agora-combat"></div>
+            <div id = "Khazar-kil-combat"></div>
+            <div id = "Elthoras-combat"></div>
+            <div id = "Northlands-combat"></div>
+            <div id = "Sands-of-Jashir-combat"></div>
+            <div id = "Deep-Dark-combat"></div>
+        </div>
+        <!-- $ Gathering menu -->
+        <div id = "gathering-menu">
+            <div id = "Agora-gathering"></div>
+            <div id = "Khazar-kil-gathering"></div>
+            <div id = "Elthoras-gathering"></div>
+            <div id = "Northlands-gathering"></div>
+            <div id = "Sands-of-Jashir-gathering"></div>
+            <div id = "Deep-Dark-gathering"></div>
+        </div>
+        <!-- $ Hunting menu -->
+        <div id = "hunting-menu">
+            <div id = "Agora-hunting"></div>
+            <div id = "Khazar-kil-hunting"></div>
+            <div id = "Elthoras-hunting"></div>
+            <div id = "Northlands-hunting"></div>
+            <div id = "Sands-of-Jashir-hunting"></div>
+            <div id = "Deep-Dark-hunting"></div>
+        </div>
+        <!-- $ Trapping menu -->
+        <div id = "trapping-menu">
+            <div id = "Agora-trapping"></div>
+            <div id = "Khazar-kil-trapping"></div>
+            <div id = "Elthoras-trapping"></div>
+            <div id = "Northlands-trapping"></div>
+            <div id = "Sands-of-Jashir-trapping"></div>
+            <div id = "Deep-Dark-trapping"></div>
         </div>
     </div>
     

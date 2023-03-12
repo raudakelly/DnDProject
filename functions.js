@@ -289,6 +289,7 @@ function openArea(name){
     content.style.display = "block";
 
     let title = document.getElementById("area-menu-title");
+    name = name.replace(/_/g,' ');
     title.innerHTML = name;
 }
 
@@ -297,6 +298,28 @@ function areaMenuBack(){
     content.style.display = "none";
     content = document.getElementById("areas-content");
     content.style.display = "block";
+}
+
+
+
+function openAreaMenu(menu){
+    //close the menu selection page
+    let content = document.getElementById("area-menu");
+    content.style.display = "none";
+
+    content = document.getElementById(menu + "-menu");
+    content.style.display = "block";
+}
+
+let areaMenuChoices = ['combat', 'gathering', 'hunting', 'trapping'];
+
+function closeAreaMenu(){
+    //close the menu selection pages
+    let content;
+    for(let i = 0; i < areaMenuChoices.length; i++){
+        content = document.getElementById(areaMenuChoices[i] + "-menu");
+        content.style.display = "none";
+    }
 }
 
 /*

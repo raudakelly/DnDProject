@@ -94,6 +94,8 @@ img{
 .s-title{
     display: flex;
     justify-content: center;
+    font-size: 40px;
+    margin: 20 0 20 0;
 }
 
 .s-item {
@@ -574,6 +576,21 @@ img{
     ! Areas content
 */
 
+/*
+    $Area backgrounds
+*/
+
+#Northlands{
+    background-image: url("./media/sprites/landscapes/northlands.png");
+    image-rendering: pixelated;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+/*
+    $Area element
+*/
+
 #areas-container{
     display: flex;
     flex-wrap: wrap;
@@ -619,7 +636,7 @@ img{
 }
 
 #area-menu{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: stretch;
     font-size: 30px;
