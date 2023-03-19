@@ -45,16 +45,31 @@ let fishing = ["Raw Blue Gill","Raw Bass","Raw Duckfish","Raw Salmon","Raw Silve
 let fishingLevels = ["1","15","30","45","60","75","90","99"];
 let fishingPrices = [1,5,20,45,80,150,250,500];
 
+//initialize brewing skill
+let brewing = ["Invisibility Potion","Strength Potion","Love Potion","Poison Potion","Antidote Potion","Fire Resist Potion",
+                "Ice Resist Potion","Sleep Potion","Combat Potion","Magic Attack Potion","Ranged Attack Potion",
+                "Defense Potion","Health Boost Potion","Tracking Potion","Cure Ailment Potion"];
+let brewingLevels = ["1","8","30","45","60","75","90","99","99","99","99","99","99","99","99"];
+let brewingPrices = [1,5,20,45,80,150,250,500,500,500,500,500,500,500,500];
+
+//initialize foraging skill
+let foraging = ["Ginseng","Amouria","Lavender","Peppermint","Nightshade","Valerian","Spicy pepper","Chanterelle",
+                "Lion’s mane","Manticore's tail","Glowshroom"];
+let foragingLevels = ["1","15","30","45","60","75","90","99","99","99","99"];
+let foragingPrices = [1,5,20,45,80,150,250,500,150,250,500];
+
 /*  List of skills to be initialized, 
         3rd item is the skills container's parent's classname
         4th is the name of the action on the button
         5th item is the folder of sprites for the skill
 */
 
-let skillArrayList = [woodcutting,woodcLevels,"woodc-selection","Chop","./media/sprites/items/woodcutting/",
-                        mining,miningLevels,"mining-selection","Mine","./media/sprites/items/mining/",
-                        smithing,smithingLevels,"smithing-selection","Smith","./media/sprites/items/smithing/",
-                        fishing,fishingLevels,"fishing-selection","Fish","./media/sprites/items/fishing/"];
+let skillArrayList = [woodcutting,woodcLevels,"woodc-selection","Chop","woodcutting",
+                        mining,miningLevels,"mining-selection","Mine","mining",
+                        smithing,smithingLevels,"smithing-selection","Smith","smithing",
+                        fishing,fishingLevels,"fishing-selection","Fish","fishing",
+                        brewing,brewingLevels,"brewing-selection","Brew","brewing",
+                        foraging,foragingLevels,"foraging-selection","Forage","foraging"];
 
 let temp, img, level, button;
 for(let i = 0;i < skillArrayList.length;i+=5){
@@ -66,7 +81,7 @@ for(let i = 0;i < skillArrayList.length;i+=5){
         temp.setAttribute("id", skillArrayList[i][j]);
         temp.innerHTML = skillArrayList[i][j];
         img = document.createElement("img");
-        img.setAttribute("src", skillArrayList[i+4] + (j+1) + ".png");
+        img.setAttribute("src", "./media/sprites/items/" + skillArrayList[i+4] + "/" + (j+1) + ".png");
         img.style.height = 128;
         img.style.width = 128;
         parent.appendChild(temp);
@@ -93,11 +108,12 @@ for(let i = 0;i < skillArrayList.length;i+=5){
     Inventory is organized in array format:
     [Tab ID, Tab Name, Item ID + 1000*foldertype, Number of Items, repeat...]
 
-    Folders:
+    Sprite folders:
     1: fishing
     2: mining
     3: smithing
     4: woodcutting
+    5: brewing
 
     For example:
     invArray = ['tab1', 'Equipement', 3001, 4, 'tab2', 'resources', 1005, 29...]
@@ -108,7 +124,7 @@ for(let i = 0;i < skillArrayList.length;i+=5){
 let invString;
 let invArray;
 if(!(invString = localStorage.getItem("inventory"))){
-    invArray = [0,'tab1','General',1001,1762,1006,69,2006,41,2007,1,3008,27,'tab2','Resources',3002,2,'tab3','Armor','tab4','Weapons','tab5','Misc', 4005, 27];
+    invArray = [0,'tab1','General',1001,1762,1006,69,2006,41,5002,5,5011,1,5009,1,2007,1,3008,27,'tab2','Resources',3002,2,'tab3','Armor','tab4','Weapons','tab5','Misc', 4005, 27];
 } else {
     invArray = invString.split(',');
 }
@@ -145,6 +161,10 @@ for(let i = 1; i < invArray.length; i++){
             fName = 'smithing'
         } else if(invArray[i]/1000 < 5){
             fName = 'woodcutting'
+        } else if(invArray[i]/1000 < 6){
+            fName = 'brewing'
+        } else if(invArray[i]/1000 < 7){
+            fName = 'foraging'
         }
 
         img.setAttribute("src", "./media/sprites/items/" + fName + '/' + (invArray[i] % 1000) + ".png");
@@ -165,7 +185,7 @@ for(let i = 1; i < invArray.length; i++){
 
 /*
     $ Load the areas-menus
-    - loads the combat, gathering, hunting and trapping menus for each area
+    - loads the combat, gathering and hunting menus for each area
     todo:
     - 
 */

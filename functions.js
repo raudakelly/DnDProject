@@ -7,7 +7,7 @@
 */
 
 //names of the side tabs
-const contentList = ["inv", "areas", "woodc","mining","smithing","fishing"];
+const contentList = ["inv", "areas", "woodc","mining","smithing","fishing","brewing","foraging"];
 
 //set the first tab to visible by default
 tab = document.getElementById(invArray[1]);
@@ -20,12 +20,13 @@ document.getElementById("tab1-text").style.backgroundColor = "rgb(117, 51, 8)";
 */
 
 /*
-    $ Inventory  Functions
+    $ Sidebar menu functions
 */
 
 /*
     ! Switches the side menu tab
 */
+
 function sItemClick(itemId){
     for(let i = 0; i < contentList.length; i++){
         let content = document.getElementById(contentList[i]);
@@ -34,6 +35,40 @@ function sItemClick(itemId){
     let content = document.getElementById(itemId);
     content.style.display = "block";
 }
+
+/*
+    ! Switches the side menu tab and allows for content tabs
+*/
+
+function sItemClickMenu(itemId, menu){
+    for(let i = 0; i < contentList.length; i++){
+        let content = document.getElementById(contentList[i]);
+        content.style.display = "none";
+    }
+    let content = document.getElementById(itemId);
+    content.style.display = "block";
+    
+    content = document.getElementById(itemId + "-selection");
+    let childElements = content.children;
+    //if the menu is set to all, show all the elements
+    if(menu == "all"){
+        for(let i = 0; i < childElements.length; i++){
+            childElements[i].style.display = "block";
+        }
+    } else {    //if the menu is set to another selection, only display the associated elements
+        for(let i = 0; i < childElements.length; i++){
+            if(childElements[i].id.includes(menu)){
+                childElements[i].style.display = "block";
+            } else {
+                childElements[i].style.display = "none";
+            }
+        }
+    }
+}
+
+/*
+    $ Inventory  Functions
+*/
 
 /*
     ! Swaps the Inventory tabs
@@ -232,9 +267,6 @@ function closeConfirmSell(){
 
 /*
     ! Sells an amount of items from the inventory
-    todo:
-    - remove x items from the users bank
-    - add x gold to users purse
 */
 function sellItem(){
     //get the quanity of the item being sold
@@ -271,8 +303,6 @@ function sellItem(){
     invArray[0] = parseInt(invArray[0] + (goldValue(itemID) * sellQuantity));
     //reload the inventory object
     reloadInventory();
-    
-    console.log("Purse: " + invArray[0]);
     //after selling the item close the confirmation menu
     closeConfirmSell();
     closeInvItem();
@@ -282,6 +312,7 @@ function sellItem(){
     $Areas Functions
 */
 
+//!Open the areas menu
 function openArea(name){
     let content = document.getElementById("areas-content");
     content.style.display = "none";
@@ -293,6 +324,7 @@ function openArea(name){
     title.innerHTML = name;
 }
 
+//!back button
 function areaMenuBack(){
     let content = document.getElementById("area-menu");
     content.style.display = "none";
@@ -300,8 +332,7 @@ function areaMenuBack(){
     content.style.display = "block";
 }
 
-
-
+//!open the area menu
 function openAreaMenu(menu){
     //close the menu selection page
     let content = document.getElementById("area-menu");
@@ -311,8 +342,9 @@ function openAreaMenu(menu){
     content.style.display = "block";
 }
 
-let areaMenuChoices = ['combat', 'gathering', 'hunting', 'trapping'];
+let areaMenuChoices = ['combat', 'gathering', 'hunting'];
 
+//!close the area menu
 function closeAreaMenu(){
     //close the menu selection pages
     let content;
@@ -339,6 +371,8 @@ function findFolderName(itemID){
         fName = 'smithing'
     } else if(itemID/1000 < 5){
         fName = 'woodcutting'
+    } else if(itemID/1000 < 6){
+        fName = 'brewing'
     }
     return fName;
 }
@@ -354,6 +388,8 @@ function goldValue(itemID){
         goldValue = smithingPrices[(itemID%1000)-1];
     } else if(itemID/1000 < 5){
         goldValue = woodcPrices[(itemID%1000)-1];
+    } else if(itemID/1000 < 6){
+        goldValue = brewingPrices[(itemID%1000)-1];
     }
     return goldValue;
 }
@@ -369,6 +405,8 @@ function findItemName(itemID){
         namingArr = smithing;
     } else if(itemID/1000 < 5){
         namingArr = woodcutting;
+    } else if(itemID/1000 < 6){
+        namingArr = brewing;
     }
     return namingArr[(itemID % 1000)-1];
 }

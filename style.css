@@ -129,6 +129,7 @@ img{
     margin-left: 450px;
     margin-top: 30px;
     margin-right: 100px;
+    margin-bottom: 100px;
 }
 
 
@@ -229,6 +230,17 @@ img{
 .style-fishing {
     background-color: rgb(3, 101, 139);
     border-color:rgb(0, 62, 87);
+}
+
+.style-brewing {
+    background-color: rgb(4, 135, 72);
+    border-color:rgb(0, 94, 48);
+}
+
+.style-foraging{
+    
+    background-color: rgb(0, 94, 6);
+    border-color:rgb(0, 69, 5);
 }
 
 /*

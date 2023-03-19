@@ -20,40 +20,36 @@
     <div class = "sidebar">
         <div class = "s-item" onclick="sItemClick('areas')">
             <h2 class = "s-item-text">Areas</h2>
-            <div class = "s-item-icon">
-                <img src="./media/sprites/sidebarIcons/map.png" alt="">
-            </div>
+            <img class = "s-item-icon" src="./media/sprites/sidebarIcons/map.png" alt="">
         </div>
         <div class = "s-item" onclick="sItemClick('inv')">
             <h2 class = "s-item-text">Inventory</h2>
-            <div class = "s-item-icon">
-                <img src="./media/sprites/sidebarIcons/chest.png" alt="">
-            </div>
+            <img class = "s-item-icon" src="./media/sprites/sidebarIcons/chest.png" alt="">
         </div>
         <div class = "s-title">Skills</div>
         <div class = "s-item" onclick="sItemClick('woodc')">
             <h2 class = "s-item-text">Woodcutting</h2>
-            <div class = "s-item-icon">
-                <img src="./media/sprites/sidebarIcons/tree.png" alt="">
-            </div>
+            <img class = "s-item-icon" src="./media/sprites/sidebarIcons/tree.png" alt="">
         </div>
         <div class = "s-item" onclick="sItemClick('mining')">
             <h2 class = "s-item-text">Mining</h2>
-            <div class = "s-item-icon">
-                <img src="./media/sprites/sidebarIcons/mining.png" alt="">
-            </div>
+            <img class = "s-item-icon" src="./media/sprites/sidebarIcons/mining.png" alt="">
         </div>
         <div class = "s-item" onclick="sItemClick('smithing')">
             <h2 class = "s-item-text">Smithing</h2>
-            <div class = "s-item-icon">
-                <img src="./media/sprites/sidebarIcons/smithing.png" alt="">
-            </div>
+            <img class = "s-item-icon" src="./media/sprites/sidebarIcons/smithing.png" alt="">
         </div>
         <div class = "s-item" onclick="sItemClick('fishing')">
             <h2 class = "s-item-text">Fishing</h2>
-            <div class = "s-item-icon">
-                <img src="./media/sprites/sidebarIcons/fishing.png" alt="">
-            </div>
+            <img class = "s-item-icon" src="./media/sprites/sidebarIcons/fishing.png" alt="">
+        </div>
+        <div class = "s-item" onclick="sItemClick('brewing')">
+            <h2 class = "s-item-text">Brewing</h2>
+            <img class = "s-item-icon" src="./media/sprites/sidebarIcons/brewing.png" alt="">
+        </div>
+        <div class = "s-item" onclick="sItemClickMenu('foraging','all')">
+            <h2 class = "s-item-text">Foraging</h2>
+            <img class = "s-item-icon" src="./media/sprites/sidebarIcons/mushroom.png" alt="">
         </div>
     </div>
     <!-- ! Areas Section -->
@@ -79,20 +75,15 @@
                 <div class = "areas-menu-title">Combat</div>
                 <img class = "area-menu-img" src="./media/sprites/enemies/goblin.gif" alt="combat-img">
             </div>
-            <div class = "area-menu-item" id = "area-menu-gathering" onclick = "openAreaMenu('gathering')">
-                <img class = "area-menu-img" src="./media/sprites/icons/herb.png" alt="gathering-icon">
+            <div class = "area-menu-item" id = "area-menu-foraging" onclick = "openAreaMenu('foraging')">
+                <img class = "area-menu-img" src="./media/sprites/icons/deer.gif" alt="foraging-icon">
                 <div class = "areas-menu-title">Gathering</div>
-                <img class = "area-menu-img" src="./media/sprites/icons/mushroom.png" alt="gathering-img">
+                <img class = "area-menu-img" src="./media/sprites/icons/mushroom.png" alt="foraging-img">
             </div>
-            <div class = "area-menu-item" id = "area-menu-hunting" onclick = "openAreaMenu('hunting')">
-                <img class = "area-menu-img" src="./media/sprites/icons/bow.png" alt="hunting-icon">
+            <div class = "area-menu-item" id = "area-menu-adventure" onclick = "openAreaMenu('hunting')">
+                <img class = "area-menu-img" src="./media/sprites/icons/rabbit.gif" alt="hunting-icon">
                 <div class = "areas-menu-title">Hunting</div>
                 <img class = "area-menu-img" src="./media/sprites/icons/deer.gif" alt="hunting-img">
-            </div>
-            <div class = "area-menu-item" id = "area-menu-trapping" onclick = "openAreaMenu('trapping')">
-                <img class = "area-menu-img" src="./media/sprites/icons/trap.png" alt="trapping-icon">
-                <div class = "areas-menu-title">Trapping</div>
-                <img class = "area-menu-img" src="./media/sprites/icons/rabbit.gif" alt="trapping-img">
             </div>
         </div>
         <!-- $ Combat menu -->
@@ -104,7 +95,7 @@
             <div id = "Sands-of-Jashir-combat"></div>
             <div id = "Deep-Dark-combat"></div>
         </div>
-        <!-- $ Gathering menu -->
+        <!-- $ Adventure mode menu -->
         <div id = "gathering-menu">
             <div id = "Agora-gathering"></div>
             <div id = "Khazar-kil-gathering"></div>
@@ -112,24 +103,6 @@
             <div id = "Northlands-gathering"></div>
             <div id = "Sands-of-Jashir-gathering"></div>
             <div id = "Deep-Dark-gathering"></div>
-        </div>
-        <!-- $ Hunting menu -->
-        <div id = "hunting-menu">
-            <div id = "Agora-hunting"></div>
-            <div id = "Khazar-kil-hunting"></div>
-            <div id = "Elthoras-hunting"></div>
-            <div id = "Northlands-hunting"></div>
-            <div id = "Sands-of-Jashir-hunting"></div>
-            <div id = "Deep-Dark-hunting"></div>
-        </div>
-        <!-- $ Trapping menu -->
-        <div id = "trapping-menu">
-            <div id = "Agora-trapping"></div>
-            <div id = "Khazar-kil-trapping"></div>
-            <div id = "Elthoras-trapping"></div>
-            <div id = "Northlands-trapping"></div>
-            <div id = "Sands-of-Jashir-trapping"></div>
-            <div id = "Deep-Dark-trapping"></div>
         </div>
     </div>
     
@@ -223,9 +196,7 @@
                 <div class = "skill-xp">Experience</div>
                 <div id = "woodc-xp" class = "skill-xp-bar">1/100</div>
             </div>
-            <div id = "woodc-selection" class = "skill-selection">
-                
-            </div>
+            <div id = "woodc-selection" class = "skill-selection"></div>
         </div>
     </div>
     <!-- ! Mining Section -->
@@ -239,9 +210,7 @@
                 <div class = "skill-xp">Experience</div>
                 <div id = "mining-xp" class = "skill-xp-bar">1/100</div>
             </div>
-            <div id = "mining-selection" class = "skill-selection">
-
-            </div>
+            <div id = "mining-selection" class = "skill-selection"></div>
         </div>
     </div>
     <!-- ! Smithing Section -->
@@ -255,9 +224,7 @@
                 <div class = "skill-xp">Experience</div>
                 <div id = "smithing-xp" class = "skill-xp-bar">1/100</div>
             </div>
-            <div id = "smithing-selection" class = "skill-selection">
-
-            </div>
+            <div id = "smithing-selection" class = "skill-selection"></div>
         </div>
     </div>
     <!-- ! Fishing Section -->
@@ -271,9 +238,35 @@
                 <div class = "skill-xp">Experience</div>
                 <div id = "fishing-xp" class = "skill-xp-bar">1/100</div>
             </div>
-            <div id = "fishing-selection" class = "skill-selection">
-
+            <div id = "fishing-selection" class = "skill-selection"></div>
+        </div>
+    </div>
+    <!-- ! Brewing Section -->
+    <div id = "brewing" class = "content">
+        <div class= "skill-container style-brewing">
+            <!-- $ Info Bar at the top of the skill -->
+            <div class = "skill-info">
+                <div class = "skill-title">Brewing</div>
+                <div class = "skill-level">Level</div>
+                <div id = "brewing-level">1/99</div>
+                <div class = "skill-xp">Experience</div>
+                <div id = "brewing-xp" class = "skill-xp-bar">1/100</div>
             </div>
+            <div id = "brewing-selection" class = "skill-selection"></div>
+        </div>
+    </div>
+    <!-- ! Foraging Section -->
+    <div id = "foraging" class = "content">
+        <div class= "skill-container style-foraging">
+            <!-- $ Info Bar at the top of the skill -->
+            <div class = "skill-info">
+                <div class = "skill-title">Foraging</div>
+                <div class = "skill-level">Level</div>
+                <div id = "foraging-level">1/99</div>
+                <div class = "skill-xp">Experience</div>
+                <div id = "foraging-xp" class = "skill-xp-bar">1/100</div>
+            </div>
+            <div id = "foraging-selection" class = "skill-selection"></div>
         </div>
     </div>
     <script src = "loadPage.js"></script>
