@@ -197,3 +197,7 @@ for(let i  = 0; i < areas.length; i++){
     let area = document.getElementById(areas[i] + "-menu");
     let newInvItem = document.createElement("div");
 }
+
+/*
+    $ Load the action-bar
+*/
