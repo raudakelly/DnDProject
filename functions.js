@@ -161,7 +161,7 @@ function sellX(){
 }
 
 /*
-    !Updates the gold value when user types input
+    ! Updates the gold value when user types input
 */
 function sellxUpdateGoldValue(){
     //get user entered quantity
