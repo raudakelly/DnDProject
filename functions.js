@@ -355,6 +355,14 @@ function closeAreaMenu(){
 }
 
 /*
+    $ Action Functions
+*/
+
+function setAction(actionID){
+    // todo: update action bar and game loop
+}
+
+/*
     $Internally Used Functions
     note: these are functions that are only called from inside this script
 
