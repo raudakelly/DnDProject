@@ -10,6 +10,13 @@
     font-weight: 400;
     font-size: 25px;
     z-index: 10;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 @font-face {
@@ -28,7 +35,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #888;
+    background-color: #626262;
     border-radius: 10px;
   }
   
@@ -92,26 +99,28 @@ img{
     ! Sidebar Properties
 */
 
-.sidebar{
+#sidebar{
     top: 0;
     position: fixed;
     height: 100vh;
     background-color: rgb(42, 42, 42);
-    width: 77px;
+    width: 85px;
     overflow: hidden;
     color: rgb(169, 169, 169);
     z-index: 15;
-    transition: 1s ease-in-out;
+    transition: .2s ease-in-out;
 }
 
-.sidebar:hover{
+/*
+#sidebar:hover{
     overflow-y: scroll;
     width: 350px;
 }
 
-.sidebar:hover .s-title{
+#sidebar:hover .s-title{
     visibility: visible;
 }
+*/
 
 .s-title{
     display: flex;
@@ -140,6 +149,7 @@ img{
 .s-item-text{
     margin-left: auto;
     margin-right: 20px;
+    display: none;
 }
 
 /*
@@ -202,10 +212,12 @@ img{
 .content{
     display: none;
     text-align: center;
-    margin-left: 450px;
+    width: 70%;
+    margin-left: 100px;
     margin-top: 30px;
     margin-right: 100px;
     margin-bottom: 100px;
+    transition: .2s ease-in-out;
 }
 
 
