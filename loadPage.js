@@ -64,15 +64,15 @@ let foragingPrices = [1,5,20,45,80,150,250,500,150,250,500];
         5th item is the folder of sprites for the skill
 */
 
-let skillArrayList = [woodcutting,woodcLevels,"woodc-selection","Chop","woodcutting",
-                        mining,miningLevels,"mining-selection","Mine","mining",
-                        smithing,smithingLevels,"smithing-selection","Smith","smithing",
-                        fishing,fishingLevels,"fishing-selection","Fish","fishing",
-                        brewing,brewingLevels,"brewing-selection","Brew","brewing",
-                        foraging,foragingLevels,"foraging-selection","Forage","foraging"];
+let skillArrayList = [woodcutting,woodcLevels,"woodc-selection","Chop","woodcutting", 4000, 
+                        mining,miningLevels,"mining-selection","Mine","mining", 2000,
+                        smithing,smithingLevels,"smithing-selection","Smith","smithing", 3000,
+                        fishing,fishingLevels,"fishing-selection","Fish","fishing", 1000,
+                        brewing,brewingLevels,"brewing-selection","Brew","brewing", 5000,
+                        foraging,foragingLevels,"foraging-selection","Forage","foraging", 6000];
 
 let temp, img, level, button;
-for(let i = 0;i < skillArrayList.length;i+=5){
+for(let i = 0;i < skillArrayList.length;i+=6){
     for(let j = 0;j < skillArrayList[i].length;j++){
         //create the element for each skill action
         parent = document.getElementById(skillArrayList[i+2]);
@@ -97,6 +97,8 @@ for(let i = 0;i < skillArrayList.length;i+=5){
         button = document.createElement("div");
         button.setAttribute("class", "skill-button");
         button.setAttribute("id", skillArrayList[i+2] + (j+1));
+        onclickAction = "beginSkillAction('" + skillArrayList[i+4] + "', '" + (skillArrayList[i+5] + j + 1) + "')"
+        button.setAttribute("onclick", onclickAction);
         button.innerHTML = skillArrayList[i+3];
         temp.appendChild(button);
     }
@@ -114,6 +116,7 @@ for(let i = 0;i < skillArrayList.length;i+=5){
     3: smithing
     4: woodcutting
     5: brewing
+    6: foraging
 
     For example:
     invArray = ['tab1', 'Equipement', 3001, 4, 'tab2', 'resources', 1005, 29...]
@@ -124,9 +127,9 @@ for(let i = 0;i < skillArrayList.length;i+=5){
 let invString;
 let invArray;
 if(!(invString = localStorage.getItem("inventory"))){
-    invArray = [0,'tab1','General',1001,1762,1006,69,2006,41,5002,5,5011,1,5009,1,2007,1,3008,27,'tab2','Resources',3002,2,'tab3','Armor','tab4','Weapons','tab5','Misc', 4005, 27];
+    invArray = [0,'tab1','General',1001,1762,1006,64,2006,41,5002,5,5011,1,5009,1,2007,1,3008,27,'tab2','Resources',3002,2,'tab3','Armor','tab4','Weapons','tab5','Misc', 4005, 27];
 } else {
-    invArray = invString.split(',');
+    invArray = [0,'tab1','General',1001,1762,1006,64,2006,41,5002,5,5011,1,5009,1,2007,1,3008,27,'tab2','Resources',3002,2,'tab3','Armor','tab4','Weapons','tab5','Misc', 4005, 27];
 }
 
 //current inventory tab element
@@ -151,23 +154,8 @@ for(let i = 1; i < invArray.length; i++){
         newInvItem.setAttribute("id", invArray[i]);
         newInvItem.setAttribute("onclick", "openInvItem(" + invArray[i] + ")");
         let img = document.createElement("img");
-
-        //get the folder name
-        if(invArray[i]/1000 < 2){
-            fName = 'fishing'
-        } else if(invArray[i]/1000 < 3){
-            fName = 'mining'
-        } else if(invArray[i]/1000 < 4){
-            fName = 'smithing'
-        } else if(invArray[i]/1000 < 5){
-            fName = 'woodcutting'
-        } else if(invArray[i]/1000 < 6){
-            fName = 'brewing'
-        } else if(invArray[i]/1000 < 7){
-            fName = 'foraging'
-        }
-
-        img.setAttribute("src", "./media/sprites/items/" + fName + '/' + (invArray[i] % 1000) + ".png");
+        //set the item icon image
+        img.setAttribute("src", getItemSprite(invArray[i]))
         img.style.height = 128;
         img.style.width = 128;
         newInvItem.appendChild(img);
@@ -182,6 +170,10 @@ for(let i = 1; i < invArray.length; i++){
     }
     
 }
+
+//set the first tab to visible by default
+tab = document.getElementById(invArray[1]);
+tab.style.display = "flex";
 
 /*
     $ Load the areas-menus

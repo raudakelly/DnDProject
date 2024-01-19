@@ -9,9 +9,6 @@
 //names of the side tabs
 const contentList = ["inv", "areas", "woodc","mining","smithing","fishing","brewing","foraging"];
 
-//set the first tab to visible by default
-tab = document.getElementById(invArray[1]);
-tab.style.display = "flex";
 //set color for selected tab
 document.getElementById("tab1-text").style.backgroundColor = "rgb(117, 51, 8)";
 
@@ -354,13 +351,6 @@ function closeAreaMenu(){
     }
 }
 
-/*
-    $ Action Functions
-*/
-
-function setAction(actionID){
-    // todo: update action bar and game loop
-}
 
 /*
     $Internally Used Functions
@@ -416,8 +406,10 @@ function findItemName(itemID){
     } else if(itemID/1000 < 6){
         namingArr = brewing;
     }
+    console.log(namingArr[(itemID % 1000)-1])
     return namingArr[(itemID % 1000)-1];
 }
+
 
 //!Returns amount of items in inventory
 function getQuantityInInventory(itemID){
@@ -427,6 +419,23 @@ function getQuantityInInventory(itemID){
         }
     }
     return -1;
+}
+
+function getItemSprite(itemID){
+    let fName;
+    if(itemID/1000 < 2){
+        fName = 'fishing'
+    } else if(itemID/1000 < 3){
+        fName = 'mining'
+    } else if(itemID/1000 < 4){
+        fName = 'smithing'
+    } else if(itemID/1000 < 5){
+        fName = 'woodcutting'
+    } else if(itemID/1000 < 6){
+        fName = 'brewing'
+    }
+    src = "./media/sprites/items/" + fName + '/' + itemID % 1000 + ".png"
+    return src;
 }
 
 /*

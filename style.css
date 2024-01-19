@@ -168,6 +168,7 @@ img{
     height: 75px;
     width: 400px;
     z-index: 12;
+    display: none;
 }
 
 /*
@@ -326,8 +327,8 @@ img{
 
 .style-foraging{
     
-    background-color: rgb(0, 94, 6);
-    border-color:rgb(0, 69, 5);
+    background-color: rgb(120, 64, 35);
+    border-color: rgb(90, 47, 26);
 }
 
 /*
