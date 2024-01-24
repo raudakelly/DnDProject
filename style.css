@@ -165,11 +165,56 @@ img{
     border-width: 5px;
     border-color: rgb(42, 42, 42);
     background-color:rgb(68, 68, 68);
-    height: 75px;
-    width: 400px;
+    height: 120px;
+    width: 500px;
     z-index: 12;
     display: none;
+    align-items: center;
+    flex-direction: column;
 }
+
+#ab-title{
+    color: rgb(0, 0, 0)
+}
+
+#ab-content-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+#ab-skill-box, #ab-item-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#ab-progress-bar{
+    width: 300px;
+    height: 20px;
+    border-radius: 4px;
+    border: #a1a1a1;
+    background-color:rgb(98, 98, 98);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#ab-progress-bar-inner{
+    width: 0px;
+    height: 20px;
+    border-radius: 4px;
+    background-color:rgb(0, 151, 43);
+    animation-name: progress;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+}
+
+@keyframes progress {
+    0%   {width: 0px;}
+    100% {width: 300px;}
+  }
 
 /*
     ! General menu properties
