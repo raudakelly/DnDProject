@@ -68,6 +68,30 @@ function sItemClickMenu(itemId, menu){
 */
 
 /*
+    ! Adds x of items to inventory
+*/
+
+function addItem(itemID, amount){
+    //search for the item
+    let found = 0
+    for(let i = 3; i < invArray.length; i+=2){
+        //If item is found in the invArray add the amount to the item and break out of the loop
+        if(invArray[i] == itemID){
+            invArray[i+1] = invArray[i+1] + amount
+            found = 1
+            break
+        }
+    }
+    if(found == 0){
+        //Add the item the the invArray in the first tab
+        invArray.splice(3, 0, itemID)
+        invArray.splice(4, 0, amount)
+    }
+    //reload the inventory
+    reloadInventory();
+}
+
+/*
     ! Swaps the Inventory tabs
 */
 //function that switches inventory tabs
@@ -280,7 +304,7 @@ function sellItem(){
         if the user has exact amount, remove from invArray
         else subtract the amount being sold
     */
-    for(let i = 3; i <= invArray.length; i++){
+    for(let i = 3; i <= invArray.length; i+=2){
         if(invArray[i] == itemID){
             userQuantity = invArray[i+1];
             //if the user is selling the exact quantity of items they have

@@ -6,7 +6,7 @@
     Breakpoint when user selects different action
 
 */
-console.log((7 / 10) | 0)
+
 /*
     Info table
     list of IDs and corresponding data for the skills
@@ -21,6 +21,8 @@ let miningXp = [10,20,30,40,50,60,70,80];
 let smithingXp = [10,20,30,40,50,60,70,80];
 let fishingXp = [10,20,30,40,50,60,70,80];
 
+var intervalID = 0
+
 
 /*
     ! Main function for skill
@@ -28,55 +30,51 @@ let fishingXp = [10,20,30,40,50,60,70,80];
     Begins the action
 */
 
-function beginSkillAction(skillName, action){
+function beginSkillAction(skillName, itemID){
     let abTitle = document.getElementById("ab-title");
     let abSkillIcon = document.getElementById("ab-skill-icon");
-    let abSkillProgress = document.getElementById("ab-skill-progress");
-    let abProgressBar = document.getElementById("ab-progress-bar");
     let abProgressBarInner = document.getElementById("ab-progress-bar-inner");
     let abItemIcon = document.getElementById("ab-item-icon");
-    let abItemQuantity = document.getElementById("ab-item-quantity");
 
-    if(skillName == 'woodcutting'){
-        abTitle.innerHTML = "Woodcutting"
-        abSkillIcon.setAttribute("src", "./media/sprites/sidebarIcons/tree.png");
+    if(skillName == 'special'){
+        
+    } else {
+        abTitle.innerHTML = skillName
+        abSkillIcon.setAttribute("src", "./media/sprites/sidebarIcons/" + skillName + ".png");
         abSkillIcon.style.height = 64;
         abSkillIcon.style.width = 64;
-        abItemIcon.setAttribute("src", "./media/sprites/items/woodcutting/3.png");
+        abItemIcon.setAttribute("src", "./media/sprites/items/" + skillName + "/" + itemID % 1000 +".png");
         //restart the animation
         abProgressBarInner.style.animation = "none";
         abProgressBarInner.offsetHeight;
         abProgressBarInner.style.animation = null;
-    } else if(skillName == 'mining'){
-        abTitle.innerHTML = "Mining"
-    } else if(skillName == 'smithing'){
-        abTitle.innerHTML = "Smithing"
-        //schedule skill event
-    } else if(skillName == 'fishing'){
-        abTitle.innerHTML = "Fishing"
-        //schedule skill event
     }
     //update actionbar
     let actionBar = document.getElementById("action-bar");
     actionBar.style.display = "flex";
+
+    /*
+    intervalID = setInterval(function() {
+        //Add the item
+        addItem(itemID, 1);
+        //restart the animation
+        abProgressBarInner.style.animation = "none";
+        abProgressBarInner.offsetHeight;
+        abProgressBarInner.style.animation = null;
+    }, 3000);*/
 }
 
 /*
     ! Skill functions
+    Add item at after scheduling if possible to reduce potential lag for item lookup function
 */
 
-function woodcAction(action){
-    
-}
 
-function miningAction(action){
 
-}
-
-function smithingAction(action){
-
-}
-
-function fishingAction(action){
-
+//Removes the action bar and stops the skill
+function endSkillAction(){
+    //update actionbar
+    clearInterval(intervalID);
+    let actionBar = document.getElementById("action-bar");
+    actionBar.style.display = "none";
 }
