@@ -31,11 +31,14 @@ var intervalID = 0
 */
 
 function beginSkillAction(skillName, itemID){
+    console.log("Reached")
     let abTitle = document.getElementById("ab-title");
     let abSkillIcon = document.getElementById("ab-skill-icon");
     let abProgressBarInner = document.getElementById("ab-progress-bar-inner");
     let abItemIcon = document.getElementById("ab-item-icon");
 
+    console.log(itemID)
+    /*
     if(skillName == 'special'){
         
     } else {
@@ -53,15 +56,9 @@ function beginSkillAction(skillName, itemID){
     let actionBar = document.getElementById("action-bar");
     actionBar.style.display = "flex";
 
-    /*
-    intervalID = setInterval(function() {
-        //Add the item
-        addItem(itemID, 1);
-        //restart the animation
-        abProgressBarInner.style.animation = "none";
-        abProgressBarInner.offsetHeight;
-        abProgressBarInner.style.animation = null;
-    }, 3000);*/
+    
+    // Calls the BeginSkillAction every x seconds
+    intervalID = setInterval(beginSkillAction(itemID), 3000);*/
 }
 
 /*
@@ -69,7 +66,15 @@ function beginSkillAction(skillName, itemID){
     Add item at after scheduling if possible to reduce potential lag for item lookup function
 */
 
-
+function beginSkillAction(itemID) {
+    //Add the item
+    //addItem(itemID, 1);
+    //restart the animation
+    let abProgressBarInner = document.getElementById("ab-progress-bar-inner");
+    abProgressBarInner.style.animation = "none";
+    abProgressBarInner.offsetHeight;
+    abProgressBarInner.style.animation = null;
+}
 
 //Removes the action bar and stops the skill
 function endSkillAction(){
