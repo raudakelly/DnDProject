@@ -74,6 +74,7 @@ function sItemClickMenu(itemId, menu){
 function addItem(itemID, amount){
     //search for the item
     let found = 0
+    itemID = Number(itemID)
     for(let i = 3; i < invArray.length; i+=2){
         //If item is found in the invArray add the amount to the item and break out of the loop
         if(invArray[i] == itemID){
