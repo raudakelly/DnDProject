@@ -396,6 +396,8 @@ function findFolderName(itemID){
         fName = 'woodcutting'
     } else if(itemID/1000 < 6){
         fName = 'brewing'
+    } else if(itemID/1000 < 7){
+        fName = 'foraging'
     }
     return fName;
 }
@@ -430,6 +432,8 @@ function findItemName(itemID){
         namingArr = woodcutting;
     } else if(itemID/1000 < 6){
         namingArr = brewing;
+    } else if(itemID/1000 < 7){
+        namingArr = foraging;
     }
     console.log(namingArr[(itemID % 1000)-1])
     return namingArr[(itemID % 1000)-1];
@@ -458,6 +462,8 @@ function getItemSprite(itemID){
         fName = 'woodcutting'
     } else if(itemID/1000 < 6){
         fName = 'brewing'
+    } else if(itemID/1000 < 7){
+        fName = 'foraging'
     }
     src = "./media/sprites/items/" + fName + '/' + itemID % 1000 + ".png"
     return src;

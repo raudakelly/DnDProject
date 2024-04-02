@@ -184,6 +184,14 @@ img{
     flex-direction: row;
 }
 
+#ab-info-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 80px;
+}
+
 #ab-progress-bar{
     width: 300px;
     height: 20px;
@@ -200,7 +208,7 @@ img{
     border-radius: 4px;
     background-color:rgb(0, 151, 43);
     animation-name: progress;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-timing-function: linear;
 }
 

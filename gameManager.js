@@ -22,12 +22,16 @@ let smithingXp = [10,20,30,40,50,60,70,80];
 let fishingXp = [10,20,30,40,50,60,70,80];
 
 var intervalID = 0
-
+// Action is used to determine whether an action is currently being performed 
+var action = 0
 
 /*
     ! Main function for skill
 
     Begins the action
+
+    skillName - name of the skill initiated
+    itemID - ID of the item that is to be added
 */
 
 function beginSkillAction(skillName, itemID){
@@ -36,10 +40,8 @@ function beginSkillAction(skillName, itemID){
     let abSkillIcon = document.getElementById("ab-skill-icon");
     let abProgressBarInner = document.getElementById("ab-progress-bar-inner");
     let abItemIcon = document.getElementById("ab-item-icon");
-
-    console.log()
-
-    
+    let abItemName = document.getElementById("ab-item-name");
+    let abLevel = document.getElementById("ab-level"); 
 
     if(skillName == 'special'){
         
@@ -53,15 +55,22 @@ function beginSkillAction(skillName, itemID){
         abProgressBarInner.style.animation = "none";
         abProgressBarInner.offsetHeight;
         abProgressBarInner.style.animation = null;
+        abItemName.innerHTML = findItemName(itemID)
+        abLevel.innerHTML = 'Level 99'
     }
     
     //update actionbar
     let actionBar = document.getElementById("action-bar");
     actionBar.style.display = "flex";
-    addItem(itemID, 1)
+    if(action == 1){
+        endSkillAction();
+        action = 0
+    } else {
+        intervalID = setInterval(beginAction, 3000, itemID);
+        action = 1
+    }
     
-    // Calls the BeginSkillAction every x seconds
-    intervalID = setInterval(beginAction, 3000, itemID);
+    
 }
 
 /*
@@ -86,4 +95,5 @@ function endSkillAction(){
     clearInterval(intervalID);
     let actionBar = document.getElementById("action-bar");
     actionBar.style.display = "none";
+    intervalID = 0
 }
