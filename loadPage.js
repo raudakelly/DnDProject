@@ -15,15 +15,18 @@
     ! Loads each of the options for each skill, builds the necessary HTML elements for each
 
     Notes:
-        Structures containing each skill action 
-        Each structure is in order by how it is listed in the skills
+        Structures containing skill info
+        Each structure in each skill is order-sensitive
 
     TODO:(when adding a skill)
-        add 2 data structures for each skill
-        add *5* items to the skillArrayList
+        add 3* data structures for each skill (below)
+        add 6* items to the skillArrayList
+        add entry to the following methods:
+            - findFolderName
+            - goldValue
+            - findItemName
+            - getItemSprite
 */
-
-// all of the skills have 2 data structures each, 1 for the name of the action, 1 for the level needed
 
 //initialize woodcutting skill
 let woodcutting = ["Logs","Oak Logs","Teak Logs","Cherry Logs","Yew Logs","Ice Logs","Magic Logs","Ebony Logs"];

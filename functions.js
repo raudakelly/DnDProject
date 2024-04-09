@@ -1,5 +1,8 @@
 /*
-    $ Functions
+    $ Functions class
+
+    Used for various functions
+    
 /*
 
 /*
@@ -378,7 +381,7 @@ function closeAreaMenu(){
 
 
 /*
-    $Internally Used Functions
+    $ Internally Used Skill Functions
     note: these are functions that are only called from inside this script
 
 */
@@ -415,6 +418,8 @@ function goldValue(itemID){
         goldValue = woodcPrices[(itemID%1000)-1];
     } else if(itemID/1000 < 6){
         goldValue = brewingPrices[(itemID%1000)-1];
+    } else if(itemID/1000 < 7){
+        goldValue = foragingPrices[(itemID%1000)-1];
     }
     return goldValue;
 }
